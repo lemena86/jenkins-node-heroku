@@ -7,7 +7,7 @@ Docker image with jenkins, node and heroku
  Crear container
  
  ```
- docker build -t custom-jenkins
+ docker build -t custom-jenkins .
  ```
  
  Iniciar el container
