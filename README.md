@@ -16,23 +16,35 @@ Docker image with jenkins, node and heroku
  docker run -p 8080:8080 -p 50000:50000 custom-jenkins
  ```
 
+ Para listar los container
+
+ ``` 
+ docker ps -a
+ ``` 
+
  Crear las llaves en el container de docker para que se pueda conectar a heroku
   
  ``` 
- docker exec -it custom-jenkins bash
+ docker exec -it ${container-id} bash
  ssh-keygen -t rsa
  heroku login
- heroku create
  heroku keys:add
  ```
-
- Instalar plugin de nodejs en jenkins
 
  Crear las credenciales en jenkins para:
  
  ```
  github
  heroku (con ssh keys y el id heroku-login)
+ ```
+
+ Configurar gmail
+ ```
+ Gmail SMTP server address: smtp.gmail.com
+ Gmail SMTP user name: Your full Gmail address (e.g. example@gmail.com)
+ Gmail SMTP password: Your Gmail password
+ Gmail SMTP port: 465
+ Gmail SMTP TLS/SSL required: yes
  ```
 
 ## Para una pipeline
@@ -45,6 +57,7 @@ Docker image with jenkins, node and heroku
 
 
 ## Para una tarea (TODO)
+ Instalar plugin de nodejs en jenkins
 
 5. crear la tarea
 	 mapear el repositorio de github
